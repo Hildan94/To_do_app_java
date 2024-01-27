@@ -2,7 +2,6 @@ package org.example.to_do_list.web;
 
 import org.example.to_do_list.domain.TodoItem;
 import org.example.to_do_list.service.TodoService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,8 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController //listens for REST requests and sends a response
 public class ToDoController {
 
-    @Autowired
     private TodoService todoService;
+
+    public ToDoController(TodoService todoService) {
+        this.todoService = todoService;
+    }
 
     // fetch all todo Items
     @GetMapping("/api/todoItems")
