@@ -13,11 +13,11 @@ public class ToDoController {
 
     @Autowired
     private TodoService todoService;
+
     // fetch all todo Items
     @GetMapping("/api/todoItems")
     public ResponseEntity<?> fetchAllTodoItems () {
         List<TodoItem> todoItems = todoService.fetchAllTodoItems();
-
         return ResponseEntity.ok(todoItems);
     }
 }
