@@ -4,6 +4,7 @@ public class TodoItem {
     private Integer id;
     private String task;
     private Boolean isDone;
+    private Boolean isEditing;
 
     public Integer getId() {
         return id;
@@ -21,11 +22,19 @@ public class TodoItem {
         this.task = task;
     }
 
-    public Boolean getDone() {
+    public Boolean getIsDone() {
         return isDone;
     }
 
-    public void setDone(Boolean done) {
-        isDone = done;
+    public void setIsDone(Boolean isDone) {
+        this.isDone = isDone;
+    }
+
+    public Boolean getIsEditing() {
+        return isEditing;
+    }
+
+    public void setIsEditing(Boolean isEditing) {
+        this.isEditing = isEditing;
     }
 }
