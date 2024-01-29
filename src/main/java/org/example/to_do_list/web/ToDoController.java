@@ -26,24 +26,26 @@ public class ToDoController {
         return ResponseEntity.ok(todoItems);
     }
 
+    //create a todo item:
     @PostMapping("/api/todoItems/todoItem")
     public ResponseEntity<?> createTodoItem ( @RequestBody TodoItem todoItem) {
-        System.out.println("the received todo is " + todoItem.getId());
         TodoItem createdTodoItem = todoService.createTodoItem(todoItem);
-        System.out.println("the created todo is " + todoItem.getId());
+        System.out.println("the created todo has id: " + todoItem.getId());
         return ResponseEntity.ok(createdTodoItem);
     }
 
+    // update a todo item
     @PutMapping("/api/todoItems/{id}")
     public ResponseEntity<?> updateTodoItem (@PathVariable Integer id, @RequestBody TodoItem todoItem) {
-        System.out.println("the received task is " + todoItem.toString());
+        System.out.println("the received task to update has id: " + todoItem.getId());
         TodoItem updatedTodoItem = todoService.updateTodoItem(id, todoItem);
         return ResponseEntity.ok(updatedTodoItem);
     }
 
+    // delete a todo item
     @DeleteMapping("/api/todoItems/{id}")
     public ResponseEntity<?> deleteTodoItem (@PathVariable Integer id) {
-        System.out.println("the received task to delete is " + id.toString());
+        System.out.println("the received task to delete has id: " + id.toString());
         List<TodoItem> updatedList = todoService.deleteTodoItem(id);
         return ResponseEntity.ok(updatedList);
     }
